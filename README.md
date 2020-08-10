@@ -1,6 +1,9 @@
 # 📹 Screeno
 ## Free, opensource mac screen roecording app
 
+[![abodsakah](https://circleci.com/gh/abodsakah/screeno.svg?style=svg)](https://app.circleci.com/pipelines/github/abodsakah/screeno)
+
+
 ### the app uses
 
  - Javascript
