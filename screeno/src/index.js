@@ -1,6 +1,8 @@
 const {
   app,
-  BrowserWindow
+  BrowserWindow,
+  clipboard,
+  nativeImage
 } = require('electron');
 const path = require('path');
 
@@ -9,18 +11,35 @@ if (require('electron-squirrel-startup')) { // eslint-disable-line global-requir
   app.quit();
 }
 
-const createWindow = () => {
+function createWindow() {
   // Create the browser window.
-  const mainWindow = new BrowserWindow({
+  let mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
       nodeIntegration: true,
-    }
+      devTools: false
+    },
+    simpleFullscreen: true,
+    backgroundColor: '#1e1e1e',
+    darkTheme: true,
+    fullscreenWindowTitle: true,
+    vibrancy: 'dark',
+    scrollBounce: true,
+    v8CacheOptions: 'none'
   });
+
+  mainWindow.setIcon(
+    nativeImage.createFromPath(
+      path.join(__dirname, "/1f3a5.icns")
+    )
+  );
+
+
 
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
+  //mainWindow.webContents.openDevTools();
 
 };
 
@@ -28,6 +47,7 @@ const createWindow = () => {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.on('ready', createWindow);
+
 
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits
