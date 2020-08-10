@@ -5,13 +5,9 @@ workflows:
   node-tests:
     jobs:
       - node/test
+      
     - run:
-          name: install electron
-          command: npm install electron
-     - run:
           name: Run tests
           command: npm start
-
-
 
 
