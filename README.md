@@ -14,6 +14,10 @@
 first install electron via:
 
     npm install electron -g
+   
+install electron builder
+
+    npm install electron-builder
 
 you can start the app with
 
